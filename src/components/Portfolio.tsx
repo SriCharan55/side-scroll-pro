@@ -4,6 +4,7 @@ import { HeroSection } from "./HeroSection";
 import { AboutSection } from "./AboutSection";
 import { SkillsSection } from "./SkillsSection";
 import { ProjectsSection } from "./ProjectsSection";
+import { CodingProfilesSection } from "./CodingProfilesSection";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -33,7 +34,7 @@ export function Portfolio() {
   // Detect active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "skills", "projects"];
+      const sections = ["hero", "about", "skills", "projects", "coding-profiles"];
       const scrollPosition = window.scrollY + 100; // Offset for better detection
 
       for (const sectionId of sections) {
@@ -94,6 +95,7 @@ export function Portfolio() {
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />
+          <CodingProfilesSection />
           
           {/* Footer */}
           <footer className="py-12 px-8 border-t border-border/30">

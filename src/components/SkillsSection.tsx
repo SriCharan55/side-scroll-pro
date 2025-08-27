@@ -14,38 +14,17 @@ export function SkillsSection() {
     {
       title: "Programming Languages",
       icon: Code,
-      skills: [
-        { name: "JavaScript", icon: "🟨", proficiency: 95 },
-        { name: "TypeScript", icon: "🔷", proficiency: 90 },
-        { name: "Python", icon: "🐍", proficiency: 85 },
-        { name: "Java", icon: "☕", proficiency: 80 },
-        { name: "C++", icon: "⚡", proficiency: 75 },
-        { name: "Go", icon: "🔵", proficiency: 70 }
-      ]
+      skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "Go"]
     },
     {
       title: "Frameworks & Libraries", 
       icon: Layers,
-      skills: [
-        { name: "React", icon: "⚛️", proficiency: 95 },
-        { name: "Next.js", icon: "▲", proficiency: 90 },
-        { name: "Node.js", icon: "🟢", proficiency: 90 },
-        { name: "Express.js", icon: "🚂", proficiency: 85 },
-        { name: "Flask", icon: "🌶️", proficiency: 80 },
-        { name: "Tailwind CSS", icon: "💨", proficiency: 95 }
-      ]
+      skills: ["React", "Next.js", "Node.js", "Express.js", "Flask", "Tailwind CSS"]
     },
     {
       title: "Tools & Technologies",
       icon: Database,
-      skills: [
-        { name: "Git", icon: "🔧", proficiency: 95 },
-        { name: "Docker", icon: "🐳", proficiency: 85 },
-        { name: "PostgreSQL", icon: "🐘", proficiency: 85 },
-        { name: "MongoDB", icon: "🍃", proficiency: 80 },
-        { name: "Firebase", icon: "🔥", proficiency: 90 },
-        { name: "AWS", icon: "☁️", proficiency: 75 }
-      ]
+      skills: ["Git", "Docker", "PostgreSQL", "MongoDB", "Firebase", "AWS"]
     }
   ];
 
@@ -72,52 +51,19 @@ export function SkillsSection() {
                   </h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="skill-item">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center">
-                          <span className="text-lg mr-2">{skill.icon}</span>
-                          <span className="text-sm font-medium text-foreground">
-                            {skill.name}
-                          </span>
-                        </div>
-                        <span className="text-xs text-muted-foreground">
-                          {skill.proficiency}%
-                        </span>
-                      </div>
-                      
-                      <div className="w-full bg-secondary/50 rounded-full h-2">
-                        <div
-                          className="bg-gradient-primary h-2 rounded-full transition-all duration-1000 shadow-glow"
-                          style={{ width: `${skill.proficiency}%` }}
-                        />
-                      </div>
-                    </div>
+                    <span
+                      key={skillIndex}
+                      className="glass px-3 py-2 rounded-lg text-sm text-foreground hover:text-primary transition-colors cursor-default border border-primary/20"
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Additional Skills */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold mb-8 text-foreground">Also Experienced With</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "REST APIs", "GraphQL", "Microservices", "Agile/Scrum", 
-              "CI/CD", "Unit Testing", "Responsive Design", "SEO Optimization",
-              "Performance Optimization", "Code Review", "Mentoring"
-            ].map((skill, index) => (
-              <span
-                key={index}
-                className="glass px-4 py-2 rounded-full text-sm text-muted-foreground hover:text-primary transition-colors cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
