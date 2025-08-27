@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Modern Portfolio Design System - Dark Blue Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    /* Core Background & Text */
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    
+    /* Card System */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: 220 25% 15%;
+    
+    /* Popover */
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Primary Blue Theme */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 5%;
+    --primary-glow: 220 70% 65%;
+    
+    /* Secondary */
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Muted */
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Accent */
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 84% 5%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    
+    /* Borders & Inputs */
+    --border: 220 25% 25%;
+    --input: 220 25% 20%;
+    --ring: 217 91% 60%;
+    
+    /* Design System Tokens */
+    --radius: 1rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(220 70% 65%) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(220 25% 8%) 50%, hsl(217 30% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 15% / 0.8) 0%, hsl(222 47% 11% / 0.9) 100%);
+    
+    /* Shadows & Glows */
+    --shadow-glow: 0 20px 40px -12px hsl(217 91% 60% / 0.3);
+    --shadow-card: 0 8px 32px hsl(222 84% 4% / 0.5);
+    --shadow-elegant: 0 4px 20px hsl(220 25% 8% / 0.6);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +125,48 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    background: var(--gradient-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .glass-hover:hover {
+    background: hsl(var(--card-glass) / 0.9);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
 }
