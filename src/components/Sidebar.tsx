@@ -25,7 +25,7 @@ export function Sidebar({ activeSection, onNavigate }: SidebarProps) {
           <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             Sri Charan
           </h1>
-          <p className="text-muted-foreground text-sm mt-2">Full Stack Developer</p>
+          {/* <p className="text-muted-foreground text-sm mt-2">Full Stack Developer</p> */}
         </div>
 
         {/* Navigation */}
