@@ -100,9 +100,9 @@ export function Portfolio() {
           {/* Footer */}
           <footer className="py-12 px-8 border-t border-border/30">
             <div className="max-w-4xl mx-auto text-center">
-              <p className="text-muted-foreground mb-4">
+              {/* <p className="text-muted-foreground mb-4">
                 © 2024 John Doe. Built with React, TypeScript & Tailwind CSS.
-              </p>
+              </p> */}
               <p className="text-sm text-muted-foreground/60">
                 Let's connect and build something amazing together!
               </p>

@@ -1,37 +1,77 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import project1Image from "@/assets/project1.jpg";
-import project2Image from "@/assets/project2.jpg";
-import project3Image from "@/assets/project3.jpg";
+import { 
+  SiMongodb, SiExpress, SiReact, SiNodedotjs, 
+  SiNextdotjs, SiTailwindcss, SiSupabase, SiPostgresql, 
+  SiDrizzle
+} from "react-icons/si";
 
 export function ProjectsSection() {
-  const projects = [
+  type Project = {
+    title: string;
+    description: string;
+    image: string;
+    technologies: { name: string; icon: JSX.Element }[];
+    liveUrl: string;
+    githubUrl: string;
+    featured?: boolean;
+  };
+
+  const projects: Project[] = [
     {
-      title: "Analytics Dashboard",
-      description: "A comprehensive web analytics platform built with React and Node.js. Features real-time data visualization, custom reports, and team collaboration tools.",
-      image: project1Image,
-      technologies: ["React", "Node.js", "PostgreSQL", "Chart.js", "Tailwind CSS"],
-      liveUrl: "https://analytics-demo.vercel.app",
-      githubUrl: "https://github.com/yourprofile/analytics-dashboard",
+      title: "Interview Prep AI",
+      description: `
+        Lets users create interview prep sessions by choosing role, experience, and topics. 
+        Generates role-specific questions with clear answers, provides pinning, and Learn More 
+        for detailed AI explanations.
+      `,
+      image: "/Screenshot 2025-08-27 201617.png", // ✅ from public/
+      technologies: [
+        { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+        { name: "Express", icon: <SiExpress className="text-gray-600" /> },
+        { name: "React", icon: <SiReact className="text-sky-500" /> },
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> }
+      ],
+      liveUrl: "https://app-mu-cyan-35.vercel.app/",
+      githubUrl: "https://github.com/SriCharan55/app",
       featured: true
     },
     {
-      title: "E-Commerce Mobile App",
-      description: "React Native e-commerce app with seamless shopping experience. Includes product search, cart management, secure payments, and order tracking.",
-      image: project2Image,
-      technologies: ["React Native", "Express.js", "MongoDB", "Stripe API", "Redux"],
-      liveUrl: "https://shop-app-demo.netlify.app",
-      githubUrl: "https://github.com/yourprofile/ecommerce-app",
-      featured: true
+      title: "AI Course Generator",
+      description: `
+        Enables users to build customized courses by selecting category, topic, difficulty, and duration. 
+        Uses Gemini 2.5 Pro via Google GenAI SDK to generate chapters, with YouTube integration for learning videos.
+      `,
+      image: "/image.png", // ✅ rename your image in public/ if needed
+      technologies: [
+        { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
+        { name: "React", icon: <SiReact className="text-sky-500" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
+        { name: "Drizzle ORM", icon: <SiDrizzle className="text-blue-600" /> }
+
+      ],
+      liveUrl: "https://ai-course-generator-blush.vercel.app/",
+      githubUrl: "https://github.com/SriCharan55/AI-Course-Generator"
+      // featured: false // optional, can be omitted
     },
     {
-      title: "Real-time Chat Platform",
-      description: "Modern chat application with real-time messaging, file sharing, and video calls. Built with Socket.io for instant communication.",
-      image: project3Image,
-      technologies: ["React", "Socket.io", "Node.js", "WebRTC", "Firebase"],
-      liveUrl: "https://chat-platform-demo.com",
-      githubUrl: "https://github.com/yourprofile/chat-platform",
-      featured: false
+      title: "Movie App",
+      description: `
+        A movie discovery platform to browse trending and popular films. 
+        Offers genre-based filtering, streaming links, and trailers with YouTube API integration.
+      `,
+      image: "/movie.png", // ✅ from public/
+      technologies: [
+        { name: "React", icon: <SiReact className="text-sky-500" /> },
+        { name: "JavaScript", icon: <SiNodedotjs className="text-yellow-500" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> }
+      ],
+      liveUrl: "https://flick-find-share-stream-nine.vercel.app/",
+      githubUrl: "https://github.com/SriCharan55/flick-find-share-stream"
+      // featured: false // optional, can be omitted
     }
   ];
 
@@ -74,17 +114,16 @@ export function ProjectsSection() {
                 </p>
 
                 {/* Technologies */}
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="glass px-3 py-1 rounded-full text-xs text-muted-foreground border border-border/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                <div className="mb-6 flex flex-wrap gap-3">
+                  {project.technologies.map((tech, techIndex) => (
+                    <div 
+                      key={techIndex} 
+                      className="flex items-center gap-2 glass px-3 py-1 rounded-full text-xs text-muted-foreground border border-border/30"
+                    >
+                      {tech.icon}
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
                 </div>
 
                 {/* Action Buttons */}
@@ -93,7 +132,7 @@ export function ProjectsSection() {
                     variant="outline"
                     size="sm"
                     className="flex-1 glass-hover border-primary/30 hover:border-primary/60"
-                    onClick={() => window.open(project.liveUrl, '_blank')}
+                    onClick={() => window.open(project.liveUrl, "_blank")}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
@@ -103,7 +142,7 @@ export function ProjectsSection() {
                     variant="outline" 
                     size="sm"
                     className="flex-1 glass-hover border-border/50 hover:border-border"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
+                    onClick={() => window.open(project.githubUrl, "_blank")}
                   >
                     <Github className="mr-2 h-4 w-4" />
                     Code
@@ -112,21 +151,6 @@ export function ProjectsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* More Projects CTA */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
-            Interested in seeing more of my work?
-          </p>
-          <Button
-            size="lg"
-            className="glass-hover bg-primary hover:bg-primary-glow text-primary-foreground font-semibold px-8 py-6 shadow-glow border border-primary/30"
-            onClick={() => window.open("https://github.com/yourprofile", '_blank')}
-          >
-            <Github className="mr-3 h-5 w-5" />
-            View All Projects on GitHub
-          </Button>
         </div>
       </div>
     </section>

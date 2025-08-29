@@ -1,51 +1,57 @@
+import { Button } from "@/components/ui/button";
+import { FileText, Github } from "lucide-react";
+
 export function AboutSection() {
+  const handleResumeClick = () => {
+    window.open("https://drive.google.com/file/d/1ZcJNWn2XZ4YM7nMpGGDx96Zr7pkocc7U/view?usp=drive_link", "_blank"); // your resume link
+  };
+
+  const handleGithubClick = () => {
+    window.open("https://github.com/SriCharan55", "_blank");
+  };
+
   return (
     <section className="py-20 px-8" id="about">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold mb-8 bg-gradient-primary bg-clip-text text-transparent">
+      <div className="max-w-3xl mx-auto text-center">
+        {/* Title */}
+        <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
           About Me
         </h2>
-        
-        <div className="glass p-8 rounded-2xl">
-          <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-            <p className="text-lg mb-6">
-              I'm a passionate Full Stack Developer with over 3 years of experience in building 
-              modern web applications and solving complex problems. My journey in tech started with 
-              competitive programming, which gave me a strong foundation in algorithms and 
-              problem-solving.
-            </p>
-            
-            <p className="text-lg mb-6">
-              I specialize in JavaScript/TypeScript ecosystems, with expertise in React, Node.js, 
-              and modern databases. I'm passionate about writing clean, efficient code and 
-              creating intuitive user experiences that make a difference.
-            </p>
 
-            <p className="text-lg mb-6">
-              When I'm not coding, you can find me exploring new technologies, contributing to 
-              open-source projects, or tackling challenging problems on competitive programming 
-              platforms. I believe in continuous learning and staying up-to-date with the 
-              latest industry trends.
-            </p>
+        {/* Name + Short Intro */}
+        <h3 className="text-2xl font-semibold text-foreground mb-2">
+          Hi, I’m Sri Charan 👋
+        </h3>
+        <p className="text-lg text-muted-foreground mb-4">
+          Welcome to my world of coding and problem solving!
+        </p>
+        <p className="text-lg text-muted-foreground mb-2">
+          I love building modern and responsive web applications using the latest technologies.
+        </p>
+        <p className="text-lg text-muted-foreground mb-8">
+          I enjoy solving complex coding challenges and exploring efficient algorithms.
+        </p>
 
-            <div className="mt-8 grid md:grid-cols-2 gap-6">
-              <div className="glass-hover p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-primary mb-3">Education</h4>
-                <p className="text-muted-foreground">
-                  Bachelor's in Computer Science<br />
-                  <span className="text-sm">XYZ University • 2020-2024</span>
-                </p>
-              </div>
-              
-              <div className="glass-hover p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-primary mb-3">Experience</h4>
-                <p className="text-muted-foreground">
-                  Full Stack Developer<br />
-                  <span className="text-sm">Tech Company • 2022-Present</span>
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            size="lg"
+            className="glass-hover bg-primary hover:bg-primary-glow text-primary-foreground font-semibold shadow-glow border border-primary/30 px-6 py-4"
+            onClick={handleResumeClick}
+          >
+            <FileText className="mr-2 h-5 w-5" />
+            View Resume
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            className="glass-hover border-border/50 hover:border-primary/50 px-6 py-4 font-semibold"
+            onClick={handleGithubClick}
+          >
+            <Github className="mr-2 h-5 w-5" />
+            GitHub Profile
+          </Button>
         </div>
       </div>
     </section>
