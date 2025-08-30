@@ -20,7 +20,7 @@ export function AboutSection() {
 
         {/* Name + Short Intro */}
         <h3 className="text-2xl font-semibold text-foreground mb-2">
-          Hi, I’m Sri Charan 👋
+          Hi, I’m Sri Charan 
         </h3>
         <p className="text-lg text-muted-foreground mb-4">
           Welcome to my world of coding and problem solving!
