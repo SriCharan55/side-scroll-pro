@@ -3,7 +3,7 @@ import { FileText, Github } from "lucide-react";
 
 export function AboutSection() {
   const handleResumeClick = () => {
-    window.open("https://drive.google.com/file/d/1ZcJNWn2XZ4YM7nMpGGDx96Zr7pkocc7U/view?usp=drive_link", "_blank"); // your resume link
+    window.open("https://drive.google.com/file/d/1Zro8Ntmyzb3piBftdDGEl8wLTvR2DgXC/view?usp=drive_link", "_blank"); // your resume link
   };
 
   const handleGithubClick = () => {
